@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ribath Hidayatul Qur'an</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">۞</div>
+            <div>
+                <h2>Ribath Qur'an</h2>
+                <small>Portal Akademik Santri</small>
+            </div>
+        </div>
+
+        <p class="menu-label">MENU UTAMA</p>
+
+        <nav>
+            <button class="nav-link active" data-page="dashboard">⌂ Dashboard</button>
+            <button class="nav-link" data-page="absensi">✓ Absensi</button>
+            <button class="nav-link" data-page="akademik">▤ Nilai Akademik</button>
+            <button class="nav-link" data-page="hafalan">۞ Hafalan Al-Qur'an</button>
+            <button class="nav-link" data-page="keuangan">₩ Keuangan Santri</button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="avatar">A</div>
+            <div>
+                <strong>Admin Pesantren</strong>
+                <small>Pengelola</small>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <p class="breadcrumb">
+                    Portal Santri / <span id="breadcrumb">Dashboard</span>
+                </p>
+                <h1 id="page-title">Dashboard</h1>
+            </div>
+            <span class="demo-label">● Mode Demonstrasi</span>
+        </header>
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="page active">
+            <div class="welcome">
+                <p>ASSALAMUALAIKUM WARAHMATULLAHI WABARAKATUH</p>
+                <h2>Selamat Datang di Portal Ribath</h2>
+                <p>Pantau kegiatan akademik dan perkembangan santri dengan mudah.</p>
+            </div>
+
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <span>♙</span>
+                    <p>Total Santri</p>
+                    <h2 id="total-santri">4</h2>
+                </article>
+
+                <article class="stat-card">
+                    <span>✓</span>
+                    <p>Hadir Hari Ini</p>
+                    <h2 id="total-hadir">3</h2>
+                </article>
+
+                <article class="stat-card">
+                    <span>▤</span>
+                    <p>Rata-rata Nilai</p>
+                    <h2 id="average-grade">86,5</h2>
+                </article>
+
+                <article class="stat-card">
+                    <span>۞</span>
+                    <p>Progres Hafalan</p>
+                    <h2 id="average-hafalan">65%</h2>
+                </article>
+            </div>
+
+            <div class="content-grid">
+                <article class="panel">
+                    <h3>Absensi Santri</h3>
+                    <p class="description">Ringkasan kehadiran santri</p>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nama Santri</th>
+                                    <th>Kelas</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dashboard-attendance"></tbody>
+                        </table>
+                    </div>
+
+                    <button class="secondary-button" data-go="absensi">
+                        Lihat Absensi
+                    </button>
+                </article>
+
+                <article class="panel">
+                    <h3>Progres Hafalan</h3>
+                    <p class="description">Perkembangan hafalan santri</p>
+                    <div id="dashboard-hafalan"></div>
+
+                    <button class="secondary-button" data-go="hafalan">
+                        Lihat Hafalan
+                    </button>
+                </article>
+            </div>
+        </section>
+
+        <!-- ABSENSI -->
+        <section id="absensi" class="page">
+            <div class="section-intro">
+                <h2>Absensi Santri</h2>
+                <p>Kelola status kehadiran santri.</p>
+            </div>
+
+            <article class="panel">
+                <h3>Daftar Kehadiran</h3>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Nama Santri</th>
+                                <th>Kelas</th>
+                                <th>Status Kehadiran</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendance-table"></tbody>
+                    </table>
+                </div>
+
+                <p class="description">
+                    Data ini merupakan data contoh untuk tugas kuliah.
+                </p>
+            </article>
+        </section>
+
+        <!-- NILAI AKADEMIK -->
+        <section id="akademik" class="page">
+            <div class="section-intro">
+                <h2>Nilai Akademik</h2>
+                <p>Rekap nilai pelajaran santri.</p>
+            </div>
+
+            <article class="panel">
+                <h3>Rekap Nilai Santri</h3>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Nama Santri</th>
+                                <th>Fiqih</th>
+                                <th>Tajwid</th>
+                                <th>Bahasa Arab</th>
+                                <th>Rata-rata</th>
+                            </tr>
+                        </thead>
+                        <tbody id="grades-table"></tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+
+        <!-- HAFALAN -->
+        <section id="hafalan" class="page">
+            <div class="section-intro">
+                <h2>Hafalan Al-Qur'an</h2>
+                <p>Pantau perkembangan hafalan setiap santri.</p>
+            </div>
+
+            <div id="hafalan-cards" class="hafalan-grid"></div>
+        </section>
+
+        <!-- KEUANGAN -->
+        <section id="keuangan" class="page">
+            <div class="section-intro">
+                <h2>Keuangan Santri</h2>
+                <p>Ringkasan tagihan dan pembayaran bulanan santri.</p>
+            </div>
+
+            <div class="finance-summary">
+                <article class="stat-card">
+                    <span>₩</span>
+                    <p>Total Tagihan</p>
+                    <h2 id="total-tagihan">Rp 0</h2>
+                </article>
+
+                <article class="stat-card">
+                    <span>✓</span>
+                    <p>Sudah Dibayar</p>
+                    <h2 id="total-dibayar">Rp 0</h2>
+                </article>
+
+                <article class="stat-card">
+                    <span>⏳</span>
+                    <p>Sisa Tagihan</p>
+                    <h2 id="total-sisa">Rp 0</h2>
+                </article>
+            </div>
+
+            <article class="panel">
+                <h3>Riwayat Pembayaran</h3>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Nama Santri</th>
+                                <th>Kelas</th>
+                                <th>Tagihan</th>
+                                <th>Dibayar</th>
+                                <th>Sisa</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="finance-table"></tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+
+        <footer>
+            © 2026 Ribath Qur'an | Proyek Pemrograman Website
+        </footer>
+    </main>
+</body>
+</html>
