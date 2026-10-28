@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ribath Hidayatul Qur'an</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                    <path d="M10 38h28M14 34V22a10 10 0 0 1 20 0v12M20 34V23a4 4 0 0 1 8 0v11M24 7v4M8 16l4 2M40 16l-4 2" />
+                    <path d="M7 39h34" />
+                </svg>
+            </div>
+            <div>
+                <h2>Ribath Hidayatul  Qur'an</h2>
+                <small>Portal Akademik Santri</small>
+            </div>
+        </div>
+
+        <p class="menu-label">MENU UTAMA</p>
+
+        <nav>
+            <button class="nav-link active" data-page="dashboard">⌂ Dashboard</button>
+            <button class="nav-link" data-page="absensi">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <rect x="3.5" y="5" width="17" height="16" rx="2.5" />
+                    <path d="M8 3v4M16 3v4M3.5 10h17m-12 5 2 2 4-4" />
+                </svg>
+                Absensi
+            </button>
+            <button class="nav-link" data-page="akademik">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M12 7v14M12 7C9.5 4.8 6.5 4.5 3 5.5v13c3.5-1 6.5-.7 9 1.5m0-13c2.5-2.2 5.5-2.5 9-1.5v13c-3.5-1-6.5-.7-9 1.5" />
+                    <path d="M7 9h2m-2 4h2m6-4h2m-2 4h2" />
+                </svg>
+                Nilai Akademik
+            </button>
+            <button class="nav-link" data-page="hafalan">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M12 7v14M12 7C9.5 4.8 6.5 4.5 3 5.5v13c3.5-1 6.5-.7 9 1.5m0-13c2.5-2.2 5.5-2.5 9-1.5v13c-3.5-1-6.5-.7-9 1.5" />
+                    <path d="m16 3 .8 1.7 1.7.3-1.2 1.2.3 1.8L16 7.2l-1.6.8.3-1.8-1.2-1.2 1.7-.3z" />
+                </svg>
+                Hafalan Al-Qur'an
+            </button>
+            <button class="nav-link" data-page="keuangan">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <rect x="2.5" y="5" width="19" height="14" rx="2.5" />
+                    <circle cx="12" cy="12" r="3" />
+                    <path d="M6 9h.01M18 15h.01" />
+                </svg>
+                Keuangan Santri
+            </button>
+            <button id="add-student-link" class="nav-link" data-page="tambah-santri">
+                <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <circle cx="9" cy="8" r="4" />
+                    <path d="M3 20v-1a6 6 0 0 1 6-6h1a6 6 0 0 1 6 6v1m4-11v6m-3-3h6" />
+                </svg>
+                Tambah Nama Santri
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="avatar">A</div>
+            <div class="profile-info">
+                <strong>Admin Pesantren</strong>
+                <label for="user-role">Peran pengguna</label>
+                <select id="user-role" class="role-select" aria-label="Pilih peran pengguna">
+                    <option value="admin">Admin Pengelola</option>
+                    <option value="parent">Orang Tua Santri</option>
+                </select>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <p class="breadcrumb">
+                    Portal Santri / <span id="breadcrumb">Dashboard</span>
+                </p>
+                <h1 id="page-title">Dashboard</h1>
+            </div>
+            <span class="demo-label">● Mode Demonstrasi</span>
+        </header>
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="page active">
+            <div class="welcome">
+                <p>ASSALAMUALAIKUM WARAHMATULLAHI WABARAKATUH</p>
+                <h2>Selamat Datang di Portal Ribath</h2>
+                <p>Pantau kegiatan akademik dan perkembangan santri dengan mudah.</p>
+            </div>
+
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <span class="stat-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M16 20v-1.5a4.5 4.5 0 0 0-4.5-4.5h-3A4.5 4.5 0 0 0 4 18.5V20" />
+                            <circle cx="10" cy="7.5" r="3.5" />
+                            <path d="M16 4.3a3.5 3.5 0 0 1 0 6.8M17 14h.5a3.5 3.5 0 0 1 3.5 3.5V20" />
+                        </svg>
+                    </span>
+                    <p>Total Santri</p>
+                    <h2 id="total-santri">4</h2>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="m8 12 2.5 2.5L16.5 9" />
+                        </svg>
+                    </span>
+                    <p>Hadir Hari Ini</p>
+                    <h2 id="total-hadir">3</h2>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M4 20V10h4v10M10 20V4h4v16m2 0v-7h4v7M2 20h20" />
+                        </svg>
+                    </span>
+                    <p>Rata-rata Nilai</p>
+                    <h2 id="average-grade">86,5</h2>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M12 7v14M12 7C9.5 4.8 6.5 4.5 3 5.5v13c3.5-1 6.5-.7 9 1.5m0-13c2.5-2.2 5.5-2.5 9-1.5v13c-3.5-1-6.5-.7-9 1.5" />
+                            <path d="m16 2 .8 1.7 1.7.3-1.2 1.2.3 1.8L16 6.2l-1.6.8.3-1.8-1.2-1.2 1.7-.3z" />
+                        </svg>
+                    </span>
+                    <p>Progres Hafalan</p>
+                    <h2 id="average-hafalan">65%</h2>
+                </article>
+            </div>
+
+            <div class="content-grid">
+                <article class="panel">
+                    <h3>Absensi Santri</h3>
+                    <p class="description">Ringkasan kehadiran santri</p>
+
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nama Santri</th>
+                                    <th>Kelas</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dashboard-attendance"></tbody>
+                        </table>
+                    </div>
+
+                    <button class="secondary-button" data-go="absensi">
+                        Lihat Absensi
+                    </button>
+                </article>
+
+                <article class="panel">
+                    <h3>Progres Hafalan</h3>
+                    <p class="description">Perkembangan hafalan santri</p>
+                    <div id="dashboard-hafalan"></div>
+
+                    <button class="secondary-button" data-go="hafalan">
+                        Lihat Hafalan
+                    </button>
+                </article>
+            </div>
+        </section>
+
+        <!-- ABSENSI -->
+        <section id="absensi" class="page">
+            <div class="section-intro">
+                <h2>Absensi Santri</h2>
+                <p>Kelola status kehadiran santri.</p>
+            </div>
+
+            <article class="panel">
+                <h3>Daftar Kehadiran</h3>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Nama Santri</th>
+                                <th>Kelas</th>
+                                <th>Status Kehadiran</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendance-table"></tbody>
+                    </table>
+                </div>
+
+                <p class="description">
+                    Data ini merupakan data contoh untuk tugas kuliah.
+                </p>
+            </article>
+        </section>
+
+        <!-- NILAI AKADEMIK -->
+        <section id="akademik" class="page">
+            <div class="section-intro">
+                <h2>Nilai Akademik</h2>
+                <p>Rekap nilai pelajaran santri.</p>
+            </div>
+
+            <article class="panel">
+                <h3>Rekap Nilai Santri</h3>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Nama Santri</th>
+                                <th>Fiqih</th>
+                                <th>Tajwid</th>
+                                <th>Bahasa Arab</th>
+                                <th>Rata-rata</th>
+                            </tr>
+                        </thead>
+                        <tbody id="grades-table"></tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+
+        <!-- HAFALAN -->
+        <section id="hafalan" class="page">
+            <div class="section-intro">
+                <h2>Hafalan Al-Qur'an</h2>
+                <p>Pantau perkembangan hafalan setiap santri.</p>
+            </div>
+
+            <div id="hafalan-cards" class="hafalan-grid"></div>
+        </section>
+
+        <!-- KEUANGAN -->
+        <section id="keuangan" class="page">
+            <div class="section-intro">
+                <h2>Keuangan Santri</h2>
+                <p>Ringkasan tagihan dan pembayaran bulanan santri.</p>
+            </div>
+
+            <div class="finance-summary">
+                <article class="stat-card">
+                    <span class="stat-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <rect x="3" y="5" width="18" height="14" rx="2" />
+                            <circle cx="12" cy="12" r="3" />
+                            <path d="M6 9h.01M18 15h.01" />
+                        </svg>
+                    </span>
+                    <p>Total Tagihan</p>
+                    <h2 id="total-tagihan">Rp 0</h2>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="m8 12 2.5 2.5L16.5 9" />
+                        </svg>
+                    </span>
+                    <p>Sudah Dibayar</p>
+                    <h2 id="total-dibayar">Rp 0</h2>
+                </article>
+
+                <article class="stat-card">
+                    <span class="stat-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <rect x="3" y="6" width="18" height="14" rx="2" />
+                            <path d="M3 10h18M12 13v3l2 1" />
+                            <circle cx="12" cy="16" r="4" />
+                        </svg>
+                    </span>
+                    <p>Sisa Tagihan</p>
+                    <h2 id="total-sisa">Rp 0</h2>
+                </article>
+            </div>
+
+            <article class="panel">
+                <h3>Riwayat Pembayaran</h3>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Nama Santri</th>
+                                <th>Kelas</th>
+                                <th>Tagihan</th>
+                                <th>Dibayar</th>
+                                <th>Sisa</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="finance-table"></tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+
+        <!-- TAMBAH SANTRI -->
+        <section id="tambah-santri" class="page">
+            <div class="section-intro">
+                <h2>Tambah Nama Santri</h2>
+                <p>Masukkan nama dan kelas untuk menambahkan santri ke daftar.</p>
+            </div>
+
+            <article class="panel add-student-panel">
+                <form id="add-student-form">
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label for="student-name">Nama Santri</label>
+                            <input id="student-name" name="nama" type="text"
+                                maxlength="100" autocomplete="name" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="student-class">Kelas</label>
+                            <input id="student-class" name="kelas" type="text"
+                                maxlength="50" required>
+                        </div>
+                    </div>
+                    <button class="primary-button" type="submit">Tambah Santri</button>
+                    <p id="add-student-feedback" class="form-feedback" aria-live="polite"></p>
+                </form>
+            </article>
+        </section>
+
+        <footer>
+            © 2026 Ribath Qur'an | Proyek Pemrograman Website
+        </footer>
+    </main>
+</body>
+</html>
