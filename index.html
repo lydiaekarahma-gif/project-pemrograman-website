@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +8,19 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
     <aside class="sidebar">
         <div class="brand">
             <div class="brand-icon" aria-hidden="true">
                 <svg viewBox="0 0 48 48" focusable="false">
-                    <path d="M10 38h28M14 34V22a10 10 0 0 1 20 0v12M20 34V23a4 4 0 0 1 8 0v11M24 7v4M8 16l4 2M40 16l-4 2" />
+                    <path
+                        d="M10 38h28M14 34V22a10 10 0 0 1 20 0v12M20 34V23a4 4 0 0 1 8 0v11M24 7v4M8 16l4 2M40 16l-4 2" />
                     <path d="M7 39h34" />
                 </svg>
             </div>
             <div>
-                <h2>Ribath Hidayatul  Qur'an</h2>
+                <h2>Ribath Hidayatul Qur'an</h2>
                 <small>Portal Akademik Santri</small>
             </div>
         </div>
@@ -36,14 +38,16 @@
             </button>
             <button class="nav-link" data-page="akademik">
                 <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d="M12 7v14M12 7C9.5 4.8 6.5 4.5 3 5.5v13c3.5-1 6.5-.7 9 1.5m0-13c2.5-2.2 5.5-2.5 9-1.5v13c-3.5-1-6.5-.7-9 1.5" />
+                    <path
+                        d="M12 7v14M12 7C9.5 4.8 6.5 4.5 3 5.5v13c3.5-1 6.5-.7 9 1.5m0-13c2.5-2.2 5.5-2.5 9-1.5v13c-3.5-1-6.5-.7-9 1.5" />
                     <path d="M7 9h2m-2 4h2m6-4h2m-2 4h2" />
                 </svg>
                 Nilai Akademik
             </button>
             <button class="nav-link" data-page="hafalan">
                 <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                    <path d="M12 7v14M12 7C9.5 4.8 6.5 4.5 3 5.5v13c3.5-1 6.5-.7 9 1.5m0-13c2.5-2.2 5.5-2.5 9-1.5v13c-3.5-1-6.5-.7-9 1.5" />
+                    <path
+                        d="M12 7v14M12 7C9.5 4.8 6.5 4.5 3 5.5v13c3.5-1 6.5-.7 9 1.5m0-13c2.5-2.2 5.5-2.5 9-1.5v13c-3.5-1-6.5-.7-9 1.5" />
                     <path d="m16 3 .8 1.7 1.7.3-1.2 1.2.3 1.8L16 7.2l-1.6.8.3-1.8-1.2-1.2 1.7-.3z" />
                 </svg>
                 Hafalan Al-Qur'an
@@ -134,7 +138,8 @@
                 <article class="stat-card">
                     <span class="stat-icon">
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <path d="M12 7v14M12 7C9.5 4.8 6.5 4.5 3 5.5v13c3.5-1 6.5-.7 9 1.5m0-13c2.5-2.2 5.5-2.5 9-1.5v13c-3.5-1-6.5-.7-9 1.5" />
+                            <path
+                                d="M12 7v14M12 7C9.5 4.8 6.5 4.5 3 5.5v13c3.5-1 6.5-.7 9 1.5m0-13c2.5-2.2 5.5-2.5 9-1.5v13c-3.5-1-6.5-.7-9 1.5" />
                             <path d="m16 2 .8 1.7 1.7.3-1.2 1.2.3 1.8L16 6.2l-1.6.8.3-1.8-1.2-1.2 1.7-.3z" />
                         </svg>
                     </span>
@@ -316,7 +321,7 @@
         <section id="tambah-santri" class="page">
             <div class="section-intro">
                 <h2>Tambah Nama Santri</h2>
-                <p>Masukkan nama dan kelas untuk menambahkan santri ke daftar.</p>
+                <p>Masukkan data lengkap santri untuk ditambahkan ke daftar.</p>
             </div>
 
             <article class="panel add-student-panel">
@@ -324,13 +329,51 @@
                     <div class="form-grid">
                         <div class="form-field">
                             <label for="student-name">Nama Santri</label>
-                            <input id="student-name" name="nama" type="text"
-                                maxlength="100" autocomplete="name" required>
+                            <input id="student-name" name="nama" type="text" maxlength="100" autocomplete="name"
+                                required>
                         </div>
                         <div class="form-field">
                             <label for="student-class">Kelas</label>
-                            <input id="student-class" name="kelas" type="text"
-                                maxlength="50" required>
+                            <div style="display: flex; gap: 8px;">
+                                <select id="student-class" name="kelas" style="flex: 1;" required>
+                                    <option value="" disabled selected>Pilih kelas santri</option>
+                                    <option value="Tahfidz A">Tahfidz A</option>
+                                    <option value="Tahfidz B">Tahfidz B</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="student-gender">Jenis Kelamin</label>
+                            <select id="student-gender" name="gender" required>
+                                <option value="" disabled selected>Pilih jenis kelamin</option>
+                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="new-class-input">Tambah Kelas Baru</label>
+                            <div style="display: flex; gap: 8px;">
+                                <input id="new-class-input" type="text" placeholder="Nama kelas baru...">
+                                <button type="button" id="btn-add-class" class="secondary-button"
+                                    style="margin-top:0;">Tambah</button>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="parent-name">Nama Orang Tua / Wali</label>
+                            <input id="parent-name" name="ortu" type="text" maxlength="100" required>
+                        </div>
+                        <!-- No. HP / WhatsApp Wali -->
+                        <div class="form-field">
+                            <label for="parent-phone">Nomor WhatsApp Wali</label>
+                            <input id="parent-phone" name="telepon" type="tel" placeholder="Contoh: 081234567890"
+                                required>
+                        </div>
+
+                        <!-- Asal Daerah / Alamat -->
+                        <div class="form-field" style="grid-column: span 2;">
+                            <label for="student-address">Asal Kota / Alamat</label>
+                            <input id="student-address" name="alamat" type="text" placeholder="Contoh: Semarang"
+                                required>
                         </div>
                     </div>
                     <button class="primary-button" type="submit">Tambah Santri</button>
@@ -344,4 +387,5 @@
         </footer>
     </main>
 </body>
+
 </html>

@@ -308,6 +308,20 @@ function showPage(pageId) {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+function tambahOpsiKelas(namaKelasBaru) {
+    const selectKelas = document.getElementById("student-class");
+
+    const opsiAda = Array.from(selectKelas.options).some(option => option.value === namaKelasBaru);
+    
+    if (!opsiAda && namaKelasBaru.trim() !== "") {
+        const opsiBaru = document.createElement("option");
+        opsiBaru.value = namaKelasBaru;
+        opsiBaru.textContent = namaKelasBaru;
+        
+        selectKelas.appendChild(opsiBaru);
+    }
+}
+
 // Navigasi menu
 document.querySelectorAll(".nav-link").forEach(button => {
     button.addEventListener("click", () => {
@@ -335,9 +349,13 @@ document.getElementById("add-student-form")
         const formData = new FormData(form);
         const nama = formData.get("nama").trim();
         const kelas = formData.get("kelas").trim();
+        const gender = formData.get("gender");
+        const ortu = formData.get("ortu").trim();
+        const telepon = formData.get("telepon").trim();
+        const alamat = formData.get("alamat").trim();
         const feedback = document.getElementById("add-student-feedback");
 
-        if (!nama || !kelas) {
+        if (!nama || !kelas || !gender || !ortu) {
             feedback.textContent = "Nama dan kelas wajib diisi.";
             return;
         }
@@ -345,6 +363,10 @@ document.getElementById("add-student-form")
         santri.push({
             nama,
             kelas,
+            gender,
+            ortu,
+            telepon,
+            alamat,
             status: "Izin",
             fiqih: 0,
             tajwid: 0,
@@ -401,6 +423,22 @@ document.addEventListener("change", event => {
 
     santri[index][field] = newValue;
     renderAllData();
+});
+
+document.getElementById("btn-add-class").addEventListener("click", () => {
+    const inputBaru = document.getElementById("new-class-input");
+    const namaKelas = inputBaru.value.trim();
+    
+    if (namaKelas) {
+        tambahOpsiKelas(namaKelas);
+        
+        // Otomatis pilih kelas yang baru saja ditambahkan
+        const selectKelas = document.getElementById("student-class");
+        selectKelas.value = namaKelas;
+        
+        // Bersihkan input
+        inputBaru.value = "";
+    }
 });
 
 // Menampilkan tanggal hari ini
