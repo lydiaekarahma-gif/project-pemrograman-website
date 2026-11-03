@@ -308,20 +308,6 @@ function showPage(pageId) {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-function tambahOpsiKelas(namaKelasBaru) {
-    const selectKelas = document.getElementById("student-class");
-
-    const opsiAda = Array.from(selectKelas.options).some(option => option.value === namaKelasBaru);
-    
-    if (!opsiAda && namaKelasBaru.trim() !== "") {
-        const opsiBaru = document.createElement("option");
-        opsiBaru.value = namaKelasBaru;
-        opsiBaru.textContent = namaKelasBaru;
-        
-        selectKelas.appendChild(opsiBaru);
-    }
-}
-
 // Navigasi menu
 document.querySelectorAll(".nav-link").forEach(button => {
     button.addEventListener("click", () => {
