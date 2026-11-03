@@ -352,11 +352,12 @@ document.getElementById("add-student-form")
         const gender = formData.get("gender");
         const ortu = formData.get("ortu").trim();
         const telepon = formData.get("telepon").trim();
+        const kota = formData.get("kota");
         const alamat = formData.get("alamat").trim();
         const feedback = document.getElementById("add-student-feedback");
 
-        if (!nama || !kelas || !gender || !ortu) {
-            feedback.textContent = "Nama dan kelas wajib diisi.";
+        if (!nama || !kelas || !gender || !ortu || !telepon || !kota || !alamat) {
+            feedback.textContent = "Semua kolom data wajib diisi";
             return;
         }
 
@@ -366,6 +367,7 @@ document.getElementById("add-student-form")
             gender,
             ortu,
             telepon,
+            kota,
             alamat,
             status: "Izin",
             fiqih: 0,
@@ -379,7 +381,7 @@ document.getElementById("add-student-form")
 
         form.reset();
         renderAllData();
-        feedback.textContent = `${nama} berhasil ditambahkan. Data awal nilai, hafalan, dan tagihan adalah 0.`;
+        feedback.textContent = `${nama} (Asal ${kota}) berhasil ditambahkan ke daftar santri.`;
     });
 
 document.addEventListener("change", event => {

@@ -342,21 +342,13 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-field">
+                        <div class="form-field" style="grid-column: span 2;">
                             <label for="student-gender">Jenis Kelamin</label>
                             <select id="student-gender" name="gender" required>
                                 <option value="" disabled selected>Pilih jenis kelamin</option>
                                 <option value="Laki-laki">Laki-laki</option>
                                 <option value="Perempuan">Perempuan</option>
                             </select>
-                        </div>
-                        <div class="form-field">
-                            <label for="new-class-input">Tambah Kelas Baru</label>
-                            <div style="display: flex; gap: 8px;">
-                                <input id="new-class-input" type="text" placeholder="Nama kelas baru...">
-                                <button type="button" id="btn-add-class" class="secondary-button"
-                                    style="margin-top:0;">Tambah</button>
-                            </div>
                         </div>
                         <div class="form-field">
                             <label for="parent-name">Nama Orang Tua / Wali</label>
@@ -372,11 +364,26 @@
                         <!-- Asal Daerah / Alamat -->
                         <div class="form-field" style="grid-column: span 2;">
                             <label for="student-address">Asal Kota / Alamat</label>
-                            <input id="student-address" name="alamat" type="text" placeholder="Contoh: Semarang"
-                                required>
+                            <select id="student-city" name="kota" required>
+                                <option value="" disabled selected>Pilih Kota / Kabupaten</option>
+                                <option value="Salatiga">Salatiga</option>
+                                <option value="Kab. Semarang">Kab. Semarang</option>
+                                <option value="Kota Semarang">Kota Semarang</option>
+                                <option value="Boyolali">Boyolali</option>
+                                <option value="Solo / Surakarta">Solo / Surakarta</option>
+                                <option value="Magelang">Magelang</option>
+                                <option value="Lainnya">Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="form-field" style="grid-column: span 2;">
+                            <label for="student-address">Alamat Lengkap</label>
+                            <textarea id="student-address" name="alamat" rows="3"
+                                placeholder="Dusun, RT/RW, Desa/Kelurahan, Kecamatan" required></textarea>
                         </div>
                     </div>
-                    <button class="primary-button" type="submit">Tambah Santri</button>
+                    <div style="margin-top: 20px;">
+                        <button class="primary-button" type="submit">Tambah Santri</button>
+                    </div>
                     <p id="add-student-feedback" class="form-feedback" aria-live="polite"></p>
                 </form>
             </article>
