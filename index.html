@@ -320,69 +320,105 @@
         <!-- TAMBAH SANTRI -->
         <section id="tambah-santri" class="page">
             <div class="section-intro">
-                <h2>Tambah Nama Santri</h2>
-                <p>Masukkan data lengkap santri untuk ditambahkan ke daftar.</p>
+                <h2>Tambah Data Santri</h2>
+                <p>Lengkapi formulir pendaftaran santri baru secara bertahap.</p>
             </div>
 
             <article class="panel add-student-panel">
+                <div class="stepper">
+                    <div class="step-item active" data-step="1">
+                        <span class="step-number">1</span>
+                        <span class="step-title">Data Santri</span>
+                    </div>
+                    <div class="step-divider"></div>
+                    <div class="step-item" data-step="2">
+                        <span class="step-number">2</span>
+                        <span class="step-title">Data Wali</span>
+                    </div>
+                    <div class="step-divider"></div>
+                    <div class="step-item" data-step="3">
+                        <span class="step-number">3</span>
+                        <span class="step-title">Alamat</span>
+                    </div>
+                </div>
                 <form id="add-student-form">
-                    <div class="form-grid">
-                        <div class="form-field">
-                            <label for="student-name">Nama Santri</label>
-                            <input id="student-name" name="nama" type="text" maxlength="100" autocomplete="name"
-                                required>
-                        </div>
-                        <div class="form-field">
-                            <label for="student-class">Kelas</label>
-                            <div style="display: flex; gap: 8px;">
-                                <select id="student-class" name="kelas" style="flex: 1;" required>
+                    <!-- STEP 1: DATA SANTRI -->
+                    <div class="form-step step-1 active">
+                        <div class="form-grid">
+                            <div class="form-field" style="grid-column: span 2;">
+                                <label for="student-name">Nama Lengkap Santri</label>
+                                <input id="student-name" name="nama" type="text" maxlength="100" autocomplete="name"
+                                    placeholder="Contoh: Muhammad Ammar" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="student-class">Kelas</label>
+                                <select id="student-class" name="kelas" required>
                                     <option value="" disabled selected>Pilih kelas santri</option>
                                     <option value="Tahfidz A">Tahfidz A</option>
                                     <option value="Tahfidz B">Tahfidz B</option>
                                 </select>
                             </div>
+                            <div class="form-field">
+                                <label for="student-gender">Jenis Kelamin</label>
+                                <select id="student-gender" name="gender" required>
+                                    <option value="" disabled selected>Pilih jenis kelamin</option>
+                                    <option value="Laki-laki">Laki-laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-field" style="grid-column: span 2;">
-                            <label for="student-gender">Jenis Kelamin</label>
-                            <select id="student-gender" name="gender" required>
-                                <option value="" disabled selected>Pilih jenis kelamin</option>
-                                <option value="Laki-laki">Laki-laki</option>
-                                <option value="Perempuan">Perempuan</option>
-                            </select>
-                        </div>
-                        <div class="form-field">
-                            <label for="parent-name">Nama Orang Tua / Wali</label>
-                            <input id="parent-name" name="ortu" type="text" maxlength="100" required>
-                        </div>
-                        <!-- No. HP / WhatsApp Wali -->
-                        <div class="form-field">
-                            <label for="parent-phone">Nomor WhatsApp Wali</label>
-                            <input id="parent-phone" name="telepon" type="tel" placeholder="Contoh: 081234567890"
-                                required>
-                        </div>
-
-                        <!-- Asal Daerah / Alamat -->
-                        <div class="form-field" style="grid-column: span 2;">
-                            <label for="student-address">Asal Kota / Alamat</label>
-                            <select id="student-city" name="kota" required>
-                                <option value="" disabled selected>Pilih Kota / Kabupaten</option>
-                                <option value="Salatiga">Salatiga</option>
-                                <option value="Kab. Semarang">Kab. Semarang</option>
-                                <option value="Kota Semarang">Kota Semarang</option>
-                                <option value="Boyolali">Boyolali</option>
-                                <option value="Solo / Surakarta">Solo / Surakarta</option>
-                                <option value="Magelang">Magelang</option>
-                                <option value="Lainnya">Lainnya</option>
-                            </select>
-                        </div>
-                        <div class="form-field" style="grid-column: span 2;">
-                            <label for="student-address">Alamat Lengkap</label>
-                            <textarea id="student-address" name="alamat" rows="3"
-                                placeholder="Dusun, RT/RW, Desa/Kelurahan, Kecamatan" required></textarea>
+                        <div class="form-actions right">
+                            <button type="button" class="primary-button btn-next" data-next="2">Lanjut ke Data Wali
+                                &rarr;</button>
                         </div>
                     </div>
-                    <div style="margin-top: 20px;">
-                        <button class="primary-button" type="submit">Tambah Santri</button>
+                    <!-- STEP 2: DATA WALI -->
+                    <div class="form-step step-2">
+                        <div class="form-grid">
+                            <div class="form-field" style="grid-column: span 2;">
+                                <label for="parent-name">Nama Orang Tua / Wali</label>
+                                <input id="parent-name" name="ortu" type="text" maxlength="100"
+                                    placeholder="Nama Ayah / Ibu / Wali" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="parent-phone">Nomor WhatsApp Wali</label>
+                                <input id="parent-phone" name="telepon" type="tel" placeholder="Contoh: 081234567890"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="secondary-button btn-prev" data-prev="1">&larr; Kembali</button>
+                            <button type="button" class="primary-button btn-next" data-next="3">Lanjut ke Alamat
+                                &rarr;</button>
+                        </div>
+                    </div>
+                    <!-- STEP 3: ALAMAT -->
+                    <div class="form-step step-3">
+                        <div class="form-grid">
+                            <div class="form-field" style="grid-column: span 2;">
+                                <label for="student-city">Kota / Kabupaten Asal</label>
+                                <select id="student-city" name="kota" required>
+                                    <option value="" disabled selected>Pilih Kota / Kabupaten</option>
+                                    <option value="Salatiga">Salatiga</option>
+                                    <option value="Kab. Semarang">Kab. Semarang</option>
+                                    <option value="Kota Semarang">Kota Semarang</option>
+                                    <option value="Boyolali">Boyolali</option>
+                                    <option value="Solo / Surakarta">Solo / Surakarta</option>
+                                    <option value="Magelang">Magelang</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                </select>
+                            </div>
+                            <div class="form-field" style="grid-column: span 2;">
+                                <label for="student-address">Alamat Lengkap</label>
+                                <textarea id="student-address" name="alamat" rows="3"
+                                    placeholder="Dusun, RT/RW, Desa/Kelurahan, Kecamatan" required></textarea>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="secondary-button btn-prev" data-prev="2">&larr;
+                                Kembali</button>
+                            <button class="primary-button" type="submit">Simpan Data Santri</button>
+                        </div>
                     </div>
                     <p id="add-student-feedback" class="form-feedback" aria-live="polite"></p>
                 </form>

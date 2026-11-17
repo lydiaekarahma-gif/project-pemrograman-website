@@ -432,6 +432,110 @@ tbody tr:last-child td {
     max-width: 700px;
 }
 
+.stepper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.step-item.active {
+    opacity: 1;
+    font-weight: bold;
+}
+
+.step-number {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: var(--text);
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.step-item.active .step-number {
+    background: var(--green);
+    color: var(--white);
+}
+
+.step-title {
+    font-size: 12px;
+}
+
+.step-divider {
+    flex: 1;
+    height: 2px;
+    background: var(--border);
+    margin: 0 12px;
+}
+
+/* Menyembunyikan step from yang tidak aktif */
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border);
+}
+
+.form-actions.right {
+    justify-content: flex-end;
+}
+
+.form-step.step-1 .form-actions {
+    justify-content: flex-end;
+}
+
+.form-actions .primary-button,
+.form-actions .secondary-button {
+    padding: 11px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 7;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 130px;
+}
+
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--white);
+    color: var(--text);
+    font: inherit;
+}
+
+.form-field textarea {
+    resize: vertical;
+}
+
 .form-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

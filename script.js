@@ -326,6 +326,74 @@ document.querySelectorAll("[data-go]").forEach(button => {
 document.getElementById("user-role")
     .addEventListener("change", updateRoleDisplay);
 
+// LOGIKA MULTI-STEP FROM
+let currentStep = 1;
+
+let formDataCache = {};
+
+function goToStep(stepNumber) {
+    const currentStepEl = document.querySelector(`.form-step.step-${currentStep}`);
+    if (currentStepEl) {
+        const inputs = currentStepEl.querySelectorAll("input, select, textarea");
+        inputs.forEach(input => {
+            if (input.name) {
+                formDataCache[input.name] = input.value;
+            }
+        });
+    }
+
+    document.querySelectorAll(".form-step").forEach(step => {
+        step.classList.remove("active");
+    });
+
+    const targetStep = document.querySelector(`.form-step.step-${stepNumber}`);
+    if (targetStep) targetStep.classList.add("active");
+
+    document.querySelectorAll(".step-item").forEach(item => {
+        const itemStap = Number(item.dataset.step);
+        item.classList.toggle("active", itemStap <= stepNumber);
+    });
+
+    currentStep = stepNumber;
+
+    const newStepEl = document.querySelector(`.form-step.step-${stepNumber}`);
+    if (newStepEl) {
+        const inputs = newStepEl.querySelectorAll("input, select, textarea");
+        inputs.forEach(input => {
+            if (input.name && formDataCache[input.name] !== undefined) {
+                input.value = formDataCache[input.name];
+            }
+        });
+    }
+}
+
+document.querySelectorAll(".btn-next").forEach(button => {
+    button.addEventListener("click", () => {
+        const currentStepEl = document.querySelector(`.form-step.step-${currentStep}`);
+        const inputs = currentStepEl.querySelectorAll("input, select, textarea");
+        
+        let isValid = true;
+        inputs.forEach(input => {
+            if (!input.checkValidity()) {
+                input.reportValidity();
+                isValid = false;
+            }
+        });
+
+        if (isValid) {
+            const nextStep = Number(button.dataset.next);
+            goToStep(nextStep);
+        }
+    });
+});
+
+document.querySelectorAll(".btn-prev").forEach(button => {
+    button.addEventListener("click", () => {
+        const prevStep = Number(button.dataset.prev);
+        goToStep(prevStep);
+    });
+});
+
 document.getElementById("add-student-form")
     .addEventListener("submit", event => {
         event.preventDefault();
@@ -333,8 +401,9 @@ document.getElementById("add-student-form")
 
         const form = event.currentTarget;
         const formData = new FormData(form);
+
         const nama = formData.get("nama").trim();
-        const kelas = formData.get("kelas").trim();
+        const kelas = formData.get("kelas");
         const gender = formData.get("gender");
         const ortu = formData.get("ortu").trim();
         const telepon = formData.get("telepon").trim();
@@ -366,8 +435,9 @@ document.getElementById("add-student-form")
         });
 
         form.reset();
+        goToStep(1);
         renderAllData();
-        feedback.textContent = `${nama} (Asal ${kota}) berhasil ditambahkan ke daftar santri.`;
+        feedback.textContent = `Berhasil! Data ${nama} (Asal ${kota}) telah ditambahkan.`;
     });
 
 document.addEventListener("change", event => {
@@ -411,22 +481,6 @@ document.addEventListener("change", event => {
 
     santri[index][field] = newValue;
     renderAllData();
-});
-
-document.getElementById("btn-add-class").addEventListener("click", () => {
-    const inputBaru = document.getElementById("new-class-input");
-    const namaKelas = inputBaru.value.trim();
-    
-    if (namaKelas) {
-        tambahOpsiKelas(namaKelas);
-        
-        // Otomatis pilih kelas yang baru saja ditambahkan
-        const selectKelas = document.getElementById("student-class");
-        selectKelas.value = namaKelas;
-        
-        // Bersihkan input
-        inputBaru.value = "";
-    }
 });
 
 // Menampilkan tanggal hari ini
